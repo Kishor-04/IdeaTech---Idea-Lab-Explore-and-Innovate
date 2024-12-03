@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox</title>
+    <link rel="icon" class="icon" href="../public/TECH (2).png" type="image/png">
+
+    <link rel="stylesheet" href="./public/Inbox.css">
+</head>
+
+<body>
+    <div class="button">
+        <button class="inbox" onclick="inbox()">Inbox</button>
+    </div>
+    <div class="fullBody">
+        <div class="mainContainer">
+            <div class="container">
+                <div class="Contact-Container">
+                    <form action="https://api.web3forms.com/submit" method="POST" class="Contact-Left">
+                        <div class="Contact-Left-Title">
+                            <h2>Get in Touch</h2>
+                            <hr>
+                        </div>
+                        <input type="hidden" name="access_key" value="841c0c28-7165-423b-b1fa-c34886b042bf">
+                        <input type="text" name="Name" placeholder="Your Name" class="Contact-Inputs" required>
+                        <input type="email" name="Email" placeholder="Your Email" class="Contact-Inputs" required>
+                        <textarea name="message" placeholder="Your Message" class="Contact-Inputs" required></textarea>
+                        <button type="submit">Submit <img src="img\arrow_icon.png" alt=""> </button>
+                    </form>
+                    <div class="Contact-Right">
+                        <img src="./public/Inbox icon.png.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        // Selecting the element with the class "fullBody"
+        var container = document.getElementsByClassName("fullBody")[0];
+        // var button = document.getElementsByClassName("fullBody")[0];
+        function inbox() {
+            // Checking if the style display property is set to "none"
+            if (container.style.display === "none" || container.style.display === "") {
+                container.style.display = "block";
+            } else {
+                container.style.display = "none"; // Toggle visibility
+            }
+        }
+
+    //     document.body.addEventListener('click', function(event) {
+    //     // Check if the clicked element is not inside the container
+    //     if (!container.contains(event.target) && event.target !== button) {
+    //         container.style.display = "none"; // Hide the container
+    //     }
+    // });
+
+    // // Stop click event propagation when the button is clicked
+    // button.addEventListener('click', function(event) {
+    //     event.stopPropagation(); // Prevent the event from bubbling up to the body
+    // });
+    </script>
+
+</body>
+
+</html>

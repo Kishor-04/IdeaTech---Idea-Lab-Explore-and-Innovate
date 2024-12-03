@@ -1,0 +1,54 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background-image: url('background.png'); /* Replace 'your-image.jpg' with your image file */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* This ensures the background remains fixed while scrolling */
+    backdrop-filter: brightness(350%) blur(6px);
+    margin-top: -20px !important;
+    margin: 0px;
+    padding:0px;
+    scroll-behavior:smooth;
+
+  }
+  h1
+  {
+    text-align: center;
+    color:rgb(0, 187, 255);
+    text-shadow: 0px 6px 2px rgb(0, 0, 0,1);
+  }
+  .chats-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+ 
+  .chat {
+    width: calc(50% - 20px); /* 50% width minus margin */
+    background-color: rgb(186, 221, 251);
+    padding: 20px;
+    border-radius: 16px;
+    margin: 10px;
+    box-sizing: border-box; /* Include padding and margin in width calculation */
+  }
+ 
+  .msg {
+    background-color: dodgerblue;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 16px;
+  }
+ 
+  button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: dodgerblue;
+    color: white;
+    cursor: pointer;
+  }
+ 
+  button:hover {
+    background-color: deepskyblue;
+  }
+
+  

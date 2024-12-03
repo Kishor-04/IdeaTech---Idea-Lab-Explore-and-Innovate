@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technologies</title>
+  <link rel="icon" class="icon" href="../public/TECH (2).png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  <link rel="stylesheet" href="./public/AdminHomepage.css">
+  <link rel="stylesheet" href="./public/Inbox.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <button class="button" onclick="openInboxPage()"><img src="./public/mail-inbox-app.png" alt="Icon"><a href="#">Inbox</a></button>
+      <div class="search-box">
+        <img src="./public/search-interface-symbol.png" alt="Search Icon">
+        <input type="text" placeholder="Search...">
+      </div>
+      <button class="sign-out-button"><img src="./public/profile-user.png" alt="Sign Out Icon"> <span>Sign
+          Out</span></button>
+    </div>
+    <div class="middle-box">
+      <h1>Available Technologies!</h1>
+      <div class="Tech">
+        <ul class="machine-list">
+          <% machines.forEach(machine => { %>
+            <li class="machine-item">
+              <a href="/machine/<%= machine._id %>" class="machine-link">
+                <img src="<%= machine.imageUrl %>" alt="<%= machine.machineName %>" class="thumbnail-image">
+                <p class="machine-name">
+                  <%= machine.machineName %>
+                </p>
+              </a>
+            </li>
+          <% }) %>
+        </ul>
+      </div>
+    </div>
+
+    <div class="curved-box">
+      <img src="./public/idea_lab 1.png" alt="Logo">
+      <nav>
+        <ul>
+          <li><a href="#"><img src="./public/home (5).png" alt="Home"> <span>Home</span></a></li>
+          <li><a href="#"><img src="./public/info-button.png" alt="About"> <span>About</span></a></li>
+          <li><a href="#"><img src="./public/tech.png" alt="Technology"> <span>Technology</span></a></li>
+          <li><a href="/StudentProfile"><img src="./public/profile-user.png" alt="Profile"> <span>Profile</span></a></li>
+        </ul>
+      </nav>
+      <div class="bottom-box">
+        <img src="./public/Mind map-pana.png" alt="Bottom Image">
+      </div>
+    </div>
+  </div>
+
+   <!-- Inbox container -->
+   <div class="inbox-container" id="inboxContainer">
+    <button class="Close-Button" id="closeButton">&#10006;</button>
+    <form action="/send-message" method="POST" class="Contact-Left">
+      <div class="Contact-Left-Title">
+        <h2>Get in Touch</h2>
+        <hr>
+      </div>
+      <input type="hidden" name="source" value="new">
+      <input type="text" id="name" name="name" placeholder="Your Name" class="Contact-Inputs" required>
+      <input type="email" id="email" name="email" placeholder="Your Email" class="Contact-Inputs" required>
+      <textarea id="message" name="message" placeholder="Your Message" class="Contact-Inputs" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+
+  <script>
+    function openInboxPage() {
+      var inboxContainer = document.getElementById('inboxContainer');
+      var overlay = document.getElementById('overlay');
+      inboxContainer.style.display = 'block';
+      overlay.style.display = 'block';
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      var closeButton = document.getElementById("closeButton");
+      var inboxContainer = document.getElementById("inboxContainer");
+      var overlay = document.getElementById("overlay");
+
+      closeButton.addEventListener("click", function() {
+        inboxContainer.style.display = "none";
+        overlay.style.display = "none";
+      });
+    });
+  </script>
+
+</body>
+
+</html>

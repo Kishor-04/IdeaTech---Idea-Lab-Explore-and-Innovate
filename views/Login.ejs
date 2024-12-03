@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="icon" class="icon" href="../public/TECH (2).png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet">
+  <link rel="stylesheet" href="/public/Login.css">
+  <link rel="stylesheet" href="/public/AdminLogin.css">
+  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  <style>
+    .message{
+      color:rgb(82, 181, 252);
+      font-weight: bold;
+      font-size: 20px;
+      right:130px;
+      margin-top:30px;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background-container">
+    <div class="navbar-container">
+      <header>
+        <div class="container">
+          <div class="logo">
+            <img src="/public/TECH (2).png" alt="Logo">
+          </div>
+          <nav>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#" id="toggleButton" onclick="toggleContainer()">Admin</a></li>
+              <li><a href="/About_Us">About Us</a></li>
+              <li><a href="/Help">Help</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <div class="navbar-image"></div>
+    </div>
+    <!-- Admin Login -->
+    <div id="container" class="hidden">
+      <!-- Close button -->
+      <span class="close-button" onclick="toggleContainer()">×</span>
+     
+      <img src="/public/AdminPic.jpg" alt="" weight="100%" height="100%">
+
+      <div class="tlogin-form">
+          <h1>LOG IN</h1>
+          <form action="/loginAdmin" method="POST" >
+            <label>Username</label>
+            <input type="text" name="userName" placeholder="Username">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Password">
+  
+            <p><a href="/forgot-password">Forgot Password?</a></p>
+            <input type="submit" value="Log in">
+            <p class="p1">Don't have an account?<a href="/signupAdmin">Sign Up</a></p>
+          </form>
+        </div>
+  </div>
+  <!-- Add an overlay container -->
+<div id="overlay"></div>
+
+    <div class="content-container">
+      <div>
+      <div class="button-box">
+        <!-- Toggle button element -->
+        <div id="btn"></div>
+        <button type="button" class="toggle-btn" id="studentLabel" onclick="student()">Student</button>
+        <button type="button" class="toggle-btn" id="teacherLabel" onclick="teacher()">Teacher</button>
+      </div>
+      <div class="tlogin-form" id="LoginStudent">
+        <div class="login-headingS">
+          <h1>LOG IN</h1>
+    </div>
+        <form action="/login" method="POST" >
+          <label>Username</label>
+          <input type="text" name="userName" placeholder="">
+          <label>Password</label>
+          <input type="password" name="password" placeholder="">
+
+          <p><a href="/forgot-password">Forgot Password?</a></p>
+          <input type="submit" value="Log in">
+          <p class="p1">Don't have an account?<a href="/signupStudent">Sign Up</a></p>
+        </form>
+      </div>
+      <% if (message) { %>
+        <div class="message">
+          <%= message %>
+        </div>
+      <% } %>
+      <div class="tlogin-form" id="LoginTeacher">
+        <div class="login-headingT">
+          <h1>LOG IN</h1>
+      </div>
+        <form action="/loginTeacher" method="POST" >
+          <label>Username</label>
+          <input type="text" name="userName" placeholder="">
+          <label>Password</label>
+          <input type="password" name="password" placeholder="">
+
+          <p><a href="/forgot-password">Forgot Password?</a></p>
+          <input type="submit" value="Log in">
+          <p class="p1">Don't have an account?<a href="/signupTeacher">Sign Up</a></p>
+        </form>
+      </div>
+</div>
+     
+
+    </div>
+  </div>
+  </div>
+
+  <script src="./public/AdminLogin.js"></script>
+<script src="./public/Login.js"></script>
+  <!-- <script src="/public/common.js"></script> -->
+  <!-- <script src="/public/togglebutton.js"></script> -->
+</body>
+
+</html>

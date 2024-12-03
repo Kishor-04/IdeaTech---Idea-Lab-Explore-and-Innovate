@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdminManualDisplay</title>
+  <link rel="icon" class="icon" href="../public/TECH (2).png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet">
+  <link rel="stylesheet" href="../public/AdminDisplay.css">
+  <style>
+    header {
+            padding: 10px 20px;
+            text-align: center;
+        }
+        header h1{
+          color:#2196F3;
+        }
+
+        nav {
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            border:2px solid black;
+        }
+
+        h2 {
+            color: #2196F3;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: #535456;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <button class="button" onclick="openInboxPage()"><img src="../public/mail-inbox-app.png" alt="Icon"> Inbox</button>
+      
+      <div id="searchContainer" class="search-box">
+        <img src="../public/search-interface-symbol.png" alt="Search Icon">
+        <input type="text" id="searchInput" placeholder="Search...">
+    </div>
+      <button class="sign-out-button"><img src="../public/profile-user.png" alt="Sign Out Icon"> <span>Sign
+          Out</span></button>
+    </div>
+    <div id="navbar" class="navbar">
+      <h2>Contents</h2>
+      <button id="closeBtn">&times;</button>
+      
+      <ul>
+        
+        <div id="tableOfContents"></div>
+        <div class="bottom-box" id="bottom-box">
+          <div class="square"></div>
+          <img src="../public/Mind map-pana.png" alt="Bottom Image">
+        </div>
+      </ul>
+      
+    </div>
+    
+    <div class="middle-box" id="dynamicContent" id="textContainer" >
+      <header>
+        <h1>About Us</h1>
+    </header>
+    <section>
+
+        <h1>About IdeaTech</h1>
+
+        <p>Welcome to IdeaTech, your go-to platform for accessing manuals and resources for machines available in the
+            Idea Lab!</p>
+
+        <h2>Our Project</h2>
+
+        <p>The IdeaTech project addresses a fundamental challenge faced by students and faculty members in the Idea Lab:
+            accessing and managing manuals for the various machines available. In a dynamic environment where innovation
+            is key, having easy access to accurate and up-to-date information is essential.</p>
+        <p>Our platform serves as a centralized hub for all machine manuals in the Idea Lab, including those for the CO2
+            laser cutting machine, 3D printer, and PCB machine. By consolidating these resources into one accessible
+            location, we aim to streamline operations and enhance productivity.</p>
+        <p>With IdeaTech, users can upload, access, and view manuals with ease. The integration of the EJS template
+            ensures a seamless and user-friendly experience, allowing users to find the information they need quickly
+            and efficiently.</p>
+        <p>Moreover, IdeaTech goes beyond manual management. It facilitates communication and collaboration among users,
+            enabling students to request machine availability from the admin and teachers to organize workshops for
+            specific machines. This collaborative approach fosters a supportive learning environment and encourages
+            hands-on experimentation and exploration.</p>
+        <p>Overall, IdeaTech is more than just a platform for managing machine manuals. It's a catalyst for innovation
+            and creativity in the Idea Lab, empowering users to turn their ideas into reality and make meaningful
+            contributions to the world of technology and design.</p>
+
+        <h2>Key Functionality</h2>
+        <ul>
+            <li><strong>Student Requests:</strong> Students can submit requests to the admin to check the availability
+                of machines in the Idea Lab. The admin can then confirm availability and provide timings for access.
+            </li>
+            <li><strong>Teacher Workshops:</strong> Teachers have the ability to send emails to students, organizing
+                workshops for various machines available in the Idea Lab. This feature promotes collaboration and
+                hands-on learning.</li>
+            <li><strong>User Authentication:</strong> Our platform supports three types of logins: admin, teacher, and
+                student. Each login type has specific privileges and functionalities tailored to their role in the Idea
+                Lab.</li>
+            <li><strong>Login and Signup System:</strong> We've implemented a robust login and signup system, ensuring
+                authentication using official IDs provided by the college for both teachers and admins. This enhances
+                security and accountability within the platform.</li>
+        </ul>
+
+        </p>
+    </section>
+    <section>
+        <h2>Our Mission</h2>
+        <p>At IdeaTech, our mission is to democratize access to essential tools and resources for innovation and
+            creativity. We believe that by making the Idea Lab more accessible, we can empower students and faculty
+            members to explore their ideas and bring them to life.</p>
+
+        <p>Join us on this journey as we strive to foster a culture of innovation and exploration in the Idea Lab and
+            beyond!</p>
+    </section>
+    
+    </div>
+    <div class="curved-box">
+      <img src="../public/TECH (2).png" alt="Logo">
+      <nav>
+        <ul>
+          <li><a href="/AdminHomepage"><img src="../public/home (5).png" alt="Home"> <span>Home</span></a></li>
+          <li><a href="#"><img src="../public/info-button.png" alt="About"> <span>About</span></a></li>
+          <li><a href="/UserHelp" id="openBtn"><img src="../public/home (5).png" alt="Help"> <span>Help</span></a></li>
+          <li><a href="/AdminProfile"><img src="../public/profile-user.png" alt="Profile"> <span>Profile</span></a></li>
+        </ul>
+      </nav>
+      <div class="bottom-box">
+        <img src="../public/Mind map-pana.png" alt="Bottom Image">
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

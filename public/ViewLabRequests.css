@@ -1,0 +1,94 @@
+/* styles.css */
+
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #2196F3;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+table th, table td {
+    padding: 25px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #2196F3;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+td {
+    color: #555;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Download link */
+a {
+    color: #2196F3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* No requests message */
+p {
+    font-size: 1.2em;
+    text-align: center;
+    color: #999;
+}
+
+.statusBtn{
+    align-items: center;
+    justify-content: center;
+    border:none;
+    background-color: #2196F3;
+    color: white;
+    width:80px;
+    height:30px;
+    border-radius: 5px;
+    margin:10px;
+
+}
+
+.statusBtn:hover{
+    cursor: pointer;
+}
+
+.disabledBtn:hover{
+    cursor:auto !important;
+}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdminEditSandbox</title>
+    <link rel="icon" class="icon" href="../public/TECH (2).png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../public/AdminSandbox.css">
+    <link rel="stylesheet" href="../public/textEditor.css">
+    <link rel="stylesheet" href="../public/slideShow.css">
+    <link rel="stylesheet" href="../public/AdminUpload.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <button class="button"><img src="../public/mail-inbox-app.png" alt="Icon"> Inbox</button>
+            <div class="search-box">
+                <img src="../public/search-interface-symbol.png" alt="Search Icon">
+                <input type="text" placeholder="Search...">
+            </div>
+            <button class="sign-out-button"><img src="../public/profile-user.png" alt="Sign Out Icon"> <span>Sign
+                    Out</span></button>
+        </div>
+
+        <div class="middle-box">
+            <div class="container-editor">
+                <!-- Slideshow container -->
+                <form id="editorForm" action="/editMachine" method="POST" enctype="multipart/form-data">
+                    <div class="slideshow-container">
+                        <div class="editing">
+                            <h2>Editing <%= machine.machineName%>
+                            </h2>
+                        </div>
+
+                        <!-- Full-width images with number and caption text -->
+                        <div class="mySlides fade">
+                            <div class="container-Text">
+                                <span id="Upload">Upload File</span><br><br>
+                                <span id="Add-tech">Add Technology(Machine) Thumbnail</span><br>
+                                <span id="valid-format">Valid file format like (PNG,JPG,JPEG)</span>
+                            </div>
+                            <img src="../public/Frame 8.png" alt="" id="figmaImage">
+                            <button id="normalButton">Browse</button>
+                            <br>
+                            <div class="imageUpload">
+                                <!-- <label for="machineImage">Machine Image:</label> -->
+                                <input type="file" id="machineImage" name="machineImage" id="inputButton"
+                                    id="imageInput" accept="image/*" style="display:none">
+                            </div>
+                            <br><br>
+
+                            <br><br>
+                            <img src="../public/Video upload-pana.png" alt="" id="upload-image">
+                        </div>
+
+                        <div class="mySlides fade">
+                            <div class="machineText">
+                                <label id="machineNameLabel" for="machineName">Technology Name:</label>
+                                <br><br>
+                                <input type="text" id="machineName" name="machineName"
+                                    value="<%= machine.machineName %>" required>
+                            </div>
+                            <br><br><br><br><br><br>
+                            <!-- <textarea name="textarea" id="editorTextarea"></textarea> -->
+                            <div class="description">
+                                <label id="descriptionLabel" for="description">Manual:</label><br><br>
+                                <textarea name="description" id="description" id="editorTextarea"
+                                    placeholder="Start Writing...">
+                                    <%= machine.description %>
+                                </textarea>
+                            </div>
+                            <br><br>
+                            <!-- <button class="publish-Btn"><a href="index.html">Publish</a></button> -->
+                            <button class="publish-Btn" type="submit">Publish</button>
+                        </div>
+
+                        <div class="sliderSigns">
+                            <!-- Next and previous buttons -->
+                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="curved-box">
+            <img src="../public/idea_lab 1.png" alt="Logo">
+            <nav>
+                <ul>
+                    <li><a href="#"><img src="../public/home (5).png" alt="Home"> <span>Home</span></a></li>
+                    <li><a href="#"><img src="../public/info-button.png" alt="About"> <span>About</span></a></li>
+                    <li><a href="#"><img src="../public/tech.png" alt="Technology"> <span>Technology</span></a>
+                    </li>
+                    <li><a href="#"><img src="../public/profile-user.png" alt="Profile"> <span>Profile</span></a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="bottom-box">
+                <img src="../public/Mind map-pana.png" alt="Bottom Image">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to handle click on normal button
+        document.getElementById('normalButton').addEventListener('click', function () {
+            // Trigger click event on the hidden file input
+            document.getElementById('machineImage').click();
+        });
+    </script>
+
+    <script>
+        // Get the image input element
+        const imageInput = document.getElementById('imageInput');
+        // Set the src attribute to machine.imageUrl
+        imageInput.src = '<%= machine.imageUrl %>';
+    </script>
+
+    <script src="../public/slideShow.js"></script>
+    <script src="../public/tinymce/tinymce.min.js"></script>
+    <!-- <script src="./public/script.js"></script> -->
+    <script src="../public/scriptEditor.js"></script>
+
+</body>
+
+</html>

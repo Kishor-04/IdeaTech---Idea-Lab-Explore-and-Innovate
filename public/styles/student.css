@@ -1,0 +1,43 @@
+.carousel-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+.carousel {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  max-width: 100%;
+  
+}
+
+.middle-box{
+  padding:0px !important;
+}
+
+.carousel-caption h5 {
+  font-size: 1.15rem;
+  /* font-weight: bold; */
+  color: #fff;
+}
+
+.padding{
+  margin-top: 40px;
+  padding:20px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #2196F3; /* Change the arrow color to black */
+  border-radius: 50%; /* Optional: Add a circular background around the arrows */
+  padding: 20px;
+}
+
+.carousel-control-prev-icon::before {
+  font-size: 30px;
+}
+
+.carousel-control-next-icon::before {
+  font-size: 30px;
+}
+

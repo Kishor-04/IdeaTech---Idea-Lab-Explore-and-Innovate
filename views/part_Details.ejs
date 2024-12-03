@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RSVP List</title>
+    <link rel="stylesheet" href="/public/styles/part_Details.css" />
+  </head>
+  <body>
+    <h1>RSVP List</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Student Name</th>
+          <th>Student Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% rsvps.forEach(rsvp => { %>
+        <tr>
+          <td><%= rsvp.studentName %></td>
+          <td><%= rsvp.studentEmail %></td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </body>
+</html>

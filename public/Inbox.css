@@ -1,0 +1,167 @@
+body {
+   font-family: 'Outfit';
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+   font-family: "Poppins", sans-serif;
+}
+
+.Contact-Container {
+   height: 100vh;
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+   background: hsl(0 ,0%, 100%, 0.1);
+   backdrop-filter: blur(0.5rem);
+   position: relative;
+}
+
+.Close-Button {
+   position: absolute;
+   top: 20px;
+   right: 20px;
+   font-size: 24px;
+   background: none;
+   border: none;
+   color: #333;
+   cursor: pointer;
+}
+
+.Close-Button:focus {
+   outline: none;
+}
+
+.Contact-Left {
+   display: flex;
+   flex-direction: column;
+   align-items: start;
+   gap: 20px;
+   order: 2;
+}
+
+.Contact-Right {
+   order: 1;
+}
+
+.Contact-Left-Title {
+   text-align: right;
+}
+
+.Contact-Left-Title h2 {
+   font-weight: 600;
+   color: #008cff;
+   font-size: 40px;
+   margin-bottom: 5px;
+   text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.8);
+}
+
+#Contact-Left-Title h2 {
+   font-size: 30px;
+}
+
+.Contact-Left-Title hr {
+   border: none;
+   width: 210px;
+   height: 5px;
+   background-color: #2196F3;
+   border-radius: 20px;
+   margin-bottom: 5px;
+}
+
+.Contact-Inputs {
+   width: 400px;
+   height: 50px;
+   border: none;
+   outline: none;
+   padding-left: 25px;
+   font-weight: 600;
+   color: #2196F3;
+   border-radius: 50px;
+   box-shadow: 0px 2px 6px 4px rgb(0, 0, 0,0.1);
+}
+
+.Contact-Left textarea {
+   height: 140px;
+   padding-top: 15px;
+   border-radius: 20px;
+}
+
+.Contact-Inputs:focus {
+   border: 3px solid rgb(43, 192, 226);
+}
+
+.Contact-Inputs::placeholder {
+   color: #2196F3;
+}
+
+.Contact-Left button {
+   display: flex;
+   align-items: center;
+   padding: 15px 30px;
+   font-size: 16px;
+   color: #fff;
+   gap: 10px;
+   border: none;
+   border-radius: 50px;
+   background: linear-gradient(270deg, #2196F3, rgb(85, 193, 255));
+   cursor: pointer;
+}
+.Contact-Left button img {
+   height: 15px;
+}
+
+.Contact-Right img {
+   width: 500px;
+}
+@media (max-width:800px) {
+   .Contact-Inputs {
+       width: 80vw;
+   }
+   .Contact-Right {
+       display: none;
+   }
+}
+ /* Adjusted CSS for inbox */
+.inbox-container {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   padding: 20px;
+   z-index: 1000;
+   display: none; /* Initially hidden */
+ }
+ 
+ .overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(255, 255, 255, 0.5);
+   z-index: 999;
+   display: none; /* Initially hidden */
+   backdrop-filter: blur(3.5px); /* Apply blur effect */
+ }
+
+ nav ul button{
+   background-color:#fff;
+   display: flex;
+   text-decoration: none;
+   border:none;
+   cursor: pointer;
+   margin-left: -10px;
+ }
+
+ nav ul button img{
+   width:18px;
+   height:18px;
+   padding-right:10px;
+ }
+ 
+ nav ul button span{
+   font-family:'Times New Roman', Times, serif;
+   font-weight:bold;
+   font-size: 16px;
+ }
+

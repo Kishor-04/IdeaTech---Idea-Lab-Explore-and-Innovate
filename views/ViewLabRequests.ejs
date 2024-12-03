@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Requests</title>
+    <link rel="stylesheet" href="/public/ViewLabRequests.css"> <!-- Linking the CSS -->
+</head>
+
+<body>
+    <div class="container">
+        <h1>Your Lab Requests</h1>
+
+        <!-- Check if there are any lab requests for this user -->
+        <% if (labRequests.length > 0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Club Name</th>
+                        <th>Lab Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Members</th>
+                        <th>Competition</th>
+                        <th>Permission Letter</th>
+                        <th>Status</th> <!-- New column for status -->
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <% labRequests.forEach(function(request) { %>
+                        <tr>
+                            <td><%= request.clubName %></td>
+                            <td><%= request.labName %></td>
+                            <td><%= request.timing[0].days %></td>
+                            <td><%= request.timing[0].time %></td>
+                            <td><%= request.members %></td>
+                            <td><%= request.competition %></td>
+                            <td>
+                                <% if (request.permissionLetter) { %>
+                                    <a href="/<%= request.permissionLetter %>" download>Download</a>
+                                <% } else { %>
+                                    No File Uploaded
+                                <% } %>
+                            </td>
+                            <td><%= request.status %></td> <!-- Display the current status -->
+                           
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+            
+        <% } else { %>
+            <p>No lab requests have been submitted yet.</p>
+        <% } %>
+    </div>
+</body>
+
+</html>

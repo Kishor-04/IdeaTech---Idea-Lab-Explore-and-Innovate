@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link rel="icon" class="icon" href="../public/TECH (2).png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/public/profile.css">
+</head>
+
+<body>
+    <button class="back-button" onclick="goBack()">&times;</button>
+        <div class="container">
+            <div class="profile">
+              <img src="<%= image %>" alt="Profile Picture" class="profile-picture">
+              <h1 class="profile-name"><%= student.Name %></h1>
+              
+              <ul class="profile-details">
+
+                <li><strong>Username:</strong><%= student.userName %></li>
+                <li><strong>Email:</strong><%= student.email %></li>
+              </ul>
+            </div>
+          </div>
+        <script>
+            function handleUpload() {
+                document.getElementById('profile-upload').click();
+            }
+            function handleRemove() {
+                document.getElementById('profile-image').src = '/path/to/default-profile-image.jpg';
+            }
+
+            // Preview uploaded image before submission
+            document.getElementById('profile-upload').addEventListener('change', function (event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        document.getElementById('profile-image').src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+            function goBack() {
+                window.history.back();
+            }
+        </script>
+</body>
+
+</html>

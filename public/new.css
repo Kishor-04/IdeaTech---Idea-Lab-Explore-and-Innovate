@@ -1,0 +1,119 @@
+body {
+    font-family: 'Outfit';
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+ }
+ 
+ .Contact-Container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background: hsl(0 ,0%, 100%, 0.1);
+    backdrop-filter: blur(0.5rem);
+    position: relative;
+ }
+ 
+ .Close-Button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+ }
+ 
+ .Close-Button:focus {
+    outline: none;
+ }
+ 
+ .Contact-Left {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    order: 2;
+ }
+ 
+ .Contact-Right {
+    order: 1;
+ }
+ 
+ .Contact-Left-Title {
+    text-align: right;
+ }
+ 
+ .Contact-Left-Title h2 {
+    font-weight: 600;
+    color: #2196F3;
+    font-size: 40px;
+    margin-bottom: 5px;
+ }
+ 
+ .Contact-Left-Title hr {
+    border: none;
+    width: 210px;
+    height: 5px;
+    background-color: #2196F3;
+    border-radius: 20px;
+    margin-bottom: 5px;
+ }
+ 
+ .Contact-Inputs {
+    width: 400px;
+    height: 50px;
+    border: none;
+    outline: none;
+    padding-left: 25px;
+    font-weight: 600;
+    color: #2196F3;
+    border-radius: 50px;
+ }
+ 
+ .Contact-Left textarea {
+    height: 140px;
+    padding-top: 15px;
+    border-radius: 20px;
+ }
+ 
+ .Contact-Inputs:focus {
+    border: 3px solid rgb(43, 192, 226);
+ }
+ 
+ .Contact-Inputs::placeholder {
+    color: #2196F3;
+ }
+ 
+ .Contact-Left button {
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    font-size: 16px;
+    color: #fff;
+    gap: 10px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(270deg, #2196F3, rgb(85, 193, 255));
+    cursor: pointer;
+ }
+ .Contact-Left button img {
+    height: 15px;
+ }
+ 
+ .Contact-Right img {
+    width: 500px;
+ }
+ @media (max-width:800px) {
+    .Contact-Inputs {
+        width: 80vw;
+    }
+    .Contact-Right {
+        display: none;
+    }
+ }
+
+ 

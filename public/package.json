@@ -1,0 +1,15 @@
+{
+  "name": "advanced-text-editor",
+  "version": "1.0.0",
+  "description": "ADV TE",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "KP",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3",
+    "mongoose": "^8.2.1"
+  }
+}

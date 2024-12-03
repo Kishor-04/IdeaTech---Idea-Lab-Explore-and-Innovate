@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Upload Machine Details</title>
+<link rel="icon" class="icon" href="../public/TECH (2).png" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+<link rel="stylesheet" href="./public/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+<h1>Upload Machine Details</h1>
+<!-- Display error message if present -->
+<% if (error) { %>
+<p style="color: red;"><%= error %></p>
+<% } %>
+<!-- Form for uploading machine details -->
+<form id="editorForm" action="/upload" method="POST" enctype="multipart/form-data">
+<label for="machineName">Machine Name:</label>
+<input type="text" id="machineName" name="machineName" required><br><br>
+<label for="description">Description:</label><br>
+<!-- <textarea name="description" id="description" required></textarea> -->
+<textarea  name="description" id="description"  rows="4" ></textarea>
+<br><br>
+<label for="machineImage">Machine Image:</label>
+<input type="file" id="machineImage" name="machineImage" accept="image/*"
+required><br><br>
+<!-- <div class="drag-area">
+    <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+    <header >Drag & Drop to Upload File</header>
+    <span>OR</span>
+    <button for="machineImage">Browse File</button>
+    <input type="file" id="machineImage" name="machineImage" accept="image/*" hidden required>
+    <p id="filenameDisplay" type="file" id="machineImage" name="machineImage" accept="image/*"></p> Element to display filename -->
+  <!-- </div><br><br> --> 
+<button type="submit">Upload</button>
+
+<script src="./public/tinymce/tinymce.min.js"></script>
+<script src="./public/script.js"></script>
+<script src="./public/scriptEditor.js"></script>
+
+
+</body> 
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/Booking.css" />
+    <title>Daily Schedule</title>
+
+    <style>
+        /* Simple UI enhancements for user-friendliness */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 1300px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color:#2196F3 !important;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #444;
+        }
+
+        /* Date navigation */
+        nav {
+            margin-bottom: 20px;
+            background-color: #95c8ff !important;
+            border-radius: 5px;
+        }
+
+        .date-nav {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .date-nav li {
+            margin: 0 10px;
+        }
+
+        .date-nav li a {
+            display: block;
+            padding: 10px 15px;
+            background-color: #eaeaea;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+        .date-nav li.active a {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .date-nav li a:hover {
+            background-color: #ddd;
+        }
+
+        /* Schedule Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table thead {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        table th,
+        table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th {
+            text-align: center;
+        }
+
+        table td {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .tdb button {
+            padding: 6px 12px;
+            border: none;
+            background-color: #dc3545;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .tdb button:hover {
+            background-color: #c82333;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            table th,
+            table td {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Schedule for <%= new Date(selectedDate).toLocaleDateString() %></h1>
+
+        <!-- Navbar for selecting dates -->
+        <nav>
+            <ul class="date-nav">
+                <% validDates.forEach(date => { %>
+                    <li class="<%= date.toISOString().split('T')[0] === selectedDate.toISOString().split('T')[0] ? 'active' : '' %>">
+                        <a href="/dailySchedule/<%= date.toISOString().split('T')[0] %>">
+                            <%= date.toLocaleDateString() %>
+                        </a>
+                    </li>
+                <% }) %>
+            </ul>
+        </nav>
+
+        <!-- Schedule Table -->
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Email</th>
+                    <th>Machine</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if (bookings.length > 0) { %>
+                    <% bookings.forEach((booking, index) => { %>
+                        <tr>
+                            <td class="tds"><%= index + 1 %></td>
+                            <td class="tds"><%= booking.email %></td>
+                            <td class="tds"><%= booking.machineId.machineName %></td>
+                            <td class="tds"><%= new Date(booking.setTime).toLocaleString() %></td>
+                            <td class="tds"><%= new Date(booking.timeOverAt).toLocaleString() %></td>
+                            <td class="tds tdb">
+                                <% if (booking.studentId && booking.studentId.toString() === session.student_id) { %>
+                                    <form action="/studentBooking/delete/<%= booking._id %>" method="POST" style="display:inline;">
+                                        <button type="submit" onclick="return confirm('Are you sure you want to delete this booking?');">Delete</button>
+                                    </form>
+                                <% } else { %>
+                                    <span>N/A</span>
+                                <% } %>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="6" style="text-align:center;">No bookings available for this day.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

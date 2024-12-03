@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/public/Booking.css" />
+    <title>Admin Dashboard</title>
+</head>
+<body>
+    <nav>
+        <a href="/schedule" aria-label="Admin Dashboard">Monthly Schedule</a>
+    </nav>
+
+    <div class="container">
+        <h1>Admin Panel</h1>
+
+        <h2>Add Machines</h2>
+        <form action="/adminBooking" method="POST" class="machine-form" aria-labelledby="add-machine">
+            <label for="machineName">Machine Name:</label>
+            <input type="text" id="machineName" name="machineName" placeholder="Machine Name" required aria-required="true" aria-label="Machine Name" />
+
+            <label for="machineStatus">Machine Status:</label>
+            <select id="machineStatus" name="machineStatus" required aria-required="true" aria-label="Machine Status">
+                <option value="" disabled selected>Select Status</option>
+                <option value="Available">Available</option>
+                <option value="Maintenance">Maintenance</option>
+                <option value="Closed">Closed</option>
+            </select>
+
+            <button type="submit" aria-label="Add Machine">Add Machine</button>
+        </form>
+
+        <h2>Machine Status</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Machine Name</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% machines.forEach((machine, index) => { %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td><strong><%= machine.machineName %></strong></td>
+                    <td><%= machine.machineStatus %></td>
+                    <td>
+                        <form action="/adminBooking/<%= machine._id %>?_method=PUT" method="POST" class="status-update-form">
+                            <select name="machineStatus" required aria-required="true" aria-label="Update Machine Status">
+                                <option value="" disabled selected>Select Status</option>
+                                <option value="Available">Available</option>
+                                <option value="Maintenance">Maintenance</option>
+                                <option value="Closed">Closed</option>
+                            </select>
+                            <button type="submit" aria-label="Update Status">Update Status</button>
+                        </form>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

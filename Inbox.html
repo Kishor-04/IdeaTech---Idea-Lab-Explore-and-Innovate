@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Contact Form</title>
+     <link rel="stylesheet" href="./public/Inbox.css">
+ </head>
+ <body>
+     <div class="Contact-Container">
+         <button class="Close-Button" id="closeButton">&#10006;</button>
+             <form  action="/send-message" method="POST" class="Contact-Left">
+             <div class="Contact-Left-Title">
+                 <h2>Get in Touch</h2>
+                 <hr>
+             </div>
+             <input type="hidden" name="source" value="new">
+             <input type="text"  id="name"  name="name" placeholder="Your Name" class="Contact-Inputs" required>
+             <input type="email" id="email" name="email" placeholder="Your Email" class="Contact-Inputs" required>
+             <textarea  id="message"  name="message" placeholder="Your Message" class="Contact-Inputs" required></textarea>
+             <button type="submit">Submit</button>
+         
+         </form>
+     </div>
+     <script src="request_box_close.js"></script>
+     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    var closeButton = document.getElementById("closeButton");
+    var contactContainer = document.querySelector(".Contact-Container");
+
+    closeButton.addEventListener("click", function() {
+        contactContainer.style.display = "none";
+    });
+});
+
+     </script>
+ </body>
+ </html>
+
+ 
+ 

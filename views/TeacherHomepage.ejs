@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher</title>
+  <link rel="icon" class="icon" href="../public/TECH (2).png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet">
+  <link rel="stylesheet" href="./public/AdminHomepage.css">
+  <link rel="stylesheet" href="./public/Inbox.css">
+  <link rel="stylesheet" href="./public/closebutton.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <button class="button" onclick="openInboxPage()"><img src="./public/mail-inbox-app.png" alt="Icon"><a href="#">Inbox</a></button>
+
+      <div class="search-box">
+        <img src="./public/search-interface-symbol.png" alt="Search Icon">
+        <input type="text" placeholder="Search...">
+      </div>
+      <button class="sign-out-button"><img src="./public/profile-user.png" alt="Sign Out Icon"> <span>Sign
+          Out</span></button>
+    </div>
+    <div class="middle-box">
+      <div class="middle-box1">
+        <h1>Add New Technology</h1>
+        <p>Upload information about new machines present in idea Lab.</p>
+        <a href="/TeacherSandbox"><button id="click-btn">Click Here </button></a>
+        <div class="inner-box">
+          <img src="./public/Website Creator-bro.png" alt="Image">
+        </div>
+      </div>
+      <div >
+        <%- include('demoAdminHomepage.ejs') -%>
+      </div>
+    </div>
+
+    <div class="curved-box">
+      <img src="/public/TECH (2).png" alt="Logo">
+      <nav>
+        <ul>
+          <li><a href="#"><img src="./public/home (5).png" alt="Home"> <span>Home</span></a></li>
+          <li><a href="/UserAboutUs"><img src="./public/info-button.png" alt="About"> <span>About</span></a></li>
+          <li><a href="/UserHelp"><img src="/public/help.png" alt="Help"> <span>Help</span></a></li>
+          <li><a href="/TeacherProfile"><img src="./public/profile-user.png" alt="Profile"> <span>Profile</span></a></li>
+        </ul>
+      </nav>
+      <div class="bottom-box">
+        <img src="./public/Mind map-pana.png" alt="Bottom Image">
+      </div>
+    </div>
+  </div>
+
+     <!-- Inbox container -->
+     <div class="inbox-container" id="inboxContainer">
+      <button class="Close-Button" id="closeButton">&#10006;</button>
+      <form action="/message" method="post" class="Contact-Left">
+        <div class="Contact-Left-Title" id="Contact-Left-Title">
+          <h2>Send Message to Students</h2>
+          <hr>
+        </div>
+        <input type="hidden" name="source" value="new">
+        <div id="section1">
+          <input type="text" id="teacherName" name="teacherName" placeholder="Teacher's Name:" class="Contact-Inputs" required><br><br>
+        
+        <input type="email" id="from" name="from" placeholder="From (Your Email):" class="Contact-Inputs" required><br><br>
+        </div>
+        <div class="section2">
+          <input type="text" id="subject" name="subject" placeholder="Subject:" class="Contact-Inputs" required><br><br>
+   
+        <textarea id="message" name="message" rows="5" cols="30" placeholder="Message:" class="Contact-Inputs" required></textarea><br><br>
+        </div>
+        <button type="submit">Send Email to Students</button>
+    </form>
+    </div>
+  
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+  
+  
+    <script>
+      function openInboxPage() {
+        var inboxContainer = document.getElementById('inboxContainer');
+        var overlay = document.getElementById('overlay');
+        inboxContainer.style.display = 'block';
+        overlay.style.display = 'block';
+      }
+  
+      document.addEventListener("DOMContentLoaded", function() {
+        var closeButton = document.getElementById("closeButton");
+        var inboxContainer = document.getElementById("inboxContainer");
+        var overlay = document.getElementById("overlay");
+  
+        closeButton.addEventListener("click", function() {
+          inboxContainer.style.display = "none";
+          overlay.style.display = "none";
+        });
+      });
+    </script>
+  
+</body>
+
+</html>

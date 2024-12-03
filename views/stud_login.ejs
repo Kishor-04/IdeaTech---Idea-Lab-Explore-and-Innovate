@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> student-Login</title>
+    <link rel="icon" class="icon" href="../public/TECH (2).png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./public/stud_login.css">
+</head>
+<body>
+    <div class="background-container">
+      <div class="navbar-container">
+        <header>
+          <div class="container">
+            <div class="logo">
+              <img src="/public/idea_lab 1.png" alt="Logo">
+              </div>
+             <nav>
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="AdminHomepage.html">Admin</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">FQA</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <div class="navbar-image"></div>
+      </div>
+      <div class="content-container">
+        <div class="content">
+          <div class="container">
+            <!-- Toggle button element -->
+            <div class="toggle student" onclick="toggleButton()">
+              <a href="teacherlogin.html" id="label1">Student</a>
+              <a href="teacherlogin.html" id="label2">Teacher</a>
+          </div>
+          
+          
+          
+        </div>
+
+          <div class="login-form">
+            <h1>LOG IN</h1>
+      <form action="/login" method="POST" id="signInForm">
+        <label>Email Address</label>
+        <input type="text" name="email" placeholder="">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="">
+        
+        <p><a href="forgot-password.html">Forgot Password?</a></p>
+        <input type="submit" value="Log in">
+        <p class="p1">Don't have an account?<a href="signup.html">Sign Up</a></p>
+      </form>
+    </div>
+    
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/public/togglebutton.js"></script>
+    <script src="/public/common.js"></script>
+  </body>
+</html>

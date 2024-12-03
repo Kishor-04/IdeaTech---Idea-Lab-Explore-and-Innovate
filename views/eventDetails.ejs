@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= newsletter.title %></title>
+    <link rel="stylesheet" href="/public/styles/form.css" />
+    <script>
+      function handleRSVP(event) {event.preventDefault(); 
+        const formData = new FormData(event.target);
+        const studentName = formData.get("studentName");
+        const studentEmail = formData.get("studentEmail");
+        fetch(event.target.action, {
+          method: "POST",
+          body: JSON.stringify({ studentName, studentEmail }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              event.target.style.display = "none";
+              alert("Thanks for your response!");
+            } else {
+              alert("Error submitting RSVP. Please try again.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("Error submitting RSVP. Please try again.");
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header Section -->
+      <header>
+        <div class="logo">
+          <img src="/public/images/logo.png" alt="IDEALab Logo" />
+        </div>
+        <h1 class="present">PRESENTS</h1>
+      </header>
+
+      <!-- Main Section -->
+      <section class="main-section">
+        <div class="banner">
+          <!-- <img src="<%= newsletter.poster %>" alt="Teacher's Day Poster" /> -->
+          <img src="<%= newsletter.banner %>" alt="Banner" />
+        </div>
+        <div class="content">
+          <!-- <h2><%= newsletter.title %></h2> -->
+          <h3 class="overview-title">OVERVIEW</h3>
+          <p><%= newsletter.description %></p>
+        </div>
+      </section>
+
+      <!-- Image and Guidelines Section -->
+<section class="image-and-guidelines">
+  <div class="poster">
+    <img src="<%= newsletter.poster %>" alt="<%= newsletter.title %>" />
+  </div>
+
+  <div class="guidelines">
+    <h3>GUIDELINES</h3>
+    <ul>
+      <% newsletter.guidelines.split('\n').forEach(function(guideline) { %>
+      <li><%= guideline %></li>
+      <% }) %>
+    </ul>
+
+    <!-- Additional Information Section -->
+    <h3>DETAILS</h3>
+    <ul>
+      <li><strong>Prizes:</strong> <%= newsletter.prizes %></li>
+      <li><strong>Key Dates:</strong> <%= newsletter.keyDates %></li>
+      <li>
+        <strong>Registration Link:</strong>
+        <a href="<%= newsletter.registrationLink %>" target="_blank"
+          >Register Here</a
+        >
+      </li>
+      <li><strong>Contact:</strong> <%= newsletter.contactInfo %></li>
+    </ul>
+  </div>
+</section>
+
+      <!-- RSVP Section -->
+      <section class="rsvp">
+       
+        <form
+          action="/rsvp/<%= newsletter._id %>"
+          method="POST"
+          onsubmit="handleRSVP(event)"
+        >
+          <input
+            type="email"
+            name="studentEmail"
+            placeholder="Your Email"
+            required
+          />
+          <input
+            type="text"
+            name="studentName"
+            placeholder="Your Name"
+            required
+          />
+          <button type="submit">RSVP!!!</button>
+        </form>
+      </section>
+
+      <!-- Footer Section -->
+      <footer>
+        <div class="social-media">
+          <a href="#"><img src="/public/images/facebook.png" alt="Facebook" /></a>
+          <a href="#"><img src="/public/images/twitter.png" alt="Twitter" /></a>
+          <a href="#"><img src="/public/images/instagram.png" alt="Instagram" /></a>
+          </a>
+        </div>
+        <p>All Rights Reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>

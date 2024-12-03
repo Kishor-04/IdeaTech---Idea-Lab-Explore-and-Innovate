@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #2196F3,#2196F3, #ffffff); /* Gradient from light blue to white */
+    overflow: hidden;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .profile {
+    background: linear-gradient(to bottom, #ffffff, #f0f7ff); /* Gradient from white to light blue */
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  
+  .profile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 5px solid #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+  }
+  
+  .profile-name {
+    color: #504f4f;
+    margin-bottom: 10px;
+  }
+  
+  .profile-bio {
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .profile-details {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .profile-details li {
+    margin-bottom: 5px;
+  }
+  
+  .profile-details li strong {
+    color: #333;
+  }
+  .back-button{
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+  }

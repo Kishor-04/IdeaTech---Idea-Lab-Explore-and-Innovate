@@ -1,0 +1,104 @@
+body {
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    overflow: hidden;
+}
+ 
+.image {
+    filter: blur(2px);
+}
+
+.imageLogo {
+    position: absolute;
+    z-index: 3;
+    margin-top: -300px;
+    margin-right:30px;
+}
+
+.imageLogo img {
+    border-radius: 50%;
+    border: 15px solid white;
+    box-shadow: 0 3px 4px 4px rgb(0, 0, 0, 0.5);
+}
+
+.imageLogo img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 3px 8px 7px rgb(0, 0, 0, 0.5);
+    transition: 0.5s;
+}
+
+.H1,
+.H3 {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    z-index: 2;
+}
+
+.H1 h1 {
+    font-size: 60px;
+    color: white;
+    text-align: center;
+    text-shadow: 4px 12px 7px rgba(0, 0, 0, 0.7);
+}
+
+.H1 span {
+    color: rgb(54, 227, 249);
+}
+
+.H3 h3 {
+    text-align: center;
+    color: black;
+    font-size:23px;
+    letter-spacing: 10px;
+    font-weight: bold;
+    background-color: rgb(255, 255, 255,0.7);
+    margin-top: 150px !important;
+    border-radius: 10px;
+   
+    padding-left:10px !important;
+
+}
+
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color:rgba(104, 192, 255, 0.5) ;
+    z-index: 1;
+}
+
+.button {
+    position: absolute;
+    z-index: 3;
+    margin-top: 250px;
+    margin-left: 30px;
+
+}
+
+.button button {
+    font-size: 40px;
+    font-family: "Poppins", sans-serif;
+    background-color: rgb(54, 227, 249,0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top:20px;
+    box-shadow: 1px 3px 5px 3px rgb(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.button button:hover {
+    transform: translateY(-5px);
+    /* Move the button 2px up */
+    box-shadow: 1px 5px 7px 5px rgb(0, 0, 0, 0.5);
+    /* Increase the shadow size */
+    transition: 0.3s;
+}

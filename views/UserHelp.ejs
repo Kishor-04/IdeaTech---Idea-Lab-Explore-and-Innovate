@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdminManualDisplay</title>
+  <link rel="icon" class="icon" href="../public/TECH (2).png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet">
+  <link rel="stylesheet" href="../public/AdminDisplay.css">
+  <style>
+   header {
+            padding: 10px 20px;
+            text-align: center;
+        }
+        header h1{
+            color:#2196F3;
+        }
+
+        nav {
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color:#2196F3;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border:2px solid black;
+        }
+
+        h2 {
+            color:#2196F3;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        footer {
+
+            background-color: #535456;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-bottom: -125px;
+            width: 100%;
+
+        }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <button class="button" onclick="openInboxPage()"><img src="../public/mail-inbox-app.png" alt="Icon"> Inbox</button>
+      <!-- <div class="search-box">
+        <img src="../public/search-interface-symbol.png" alt="Search Icon">
+        <input type="text" id="searchInput" placeholder="Search...">
+      </div> -->
+      <div id="searchContainer" class="search-box">
+        <img src="../public/search-interface-symbol.png" alt="Search Icon">
+        <input type="text" id="searchInput" placeholder="Search...">
+    </div>
+      <button class="sign-out-button"><img src="../public/profile-user.png" alt="Sign Out Icon"> <span>Sign
+          Out</span></button>
+    </div>
+    <div id="navbar" class="navbar">
+      <h2>Contents</h2>
+      <button id="closeBtn">&times;</button>
+      
+      <ul>
+        
+        <div id="tableOfContents"></div>
+        <div class="bottom-box" id="bottom-box">
+          <div class="square"></div>
+          <img src="../public/Mind map-pana.png" alt="Bottom Image">
+        </div>
+      </ul>
+      
+    </div>
+    
+    <div class="middle-box" id="dynamicContent" id="textContainer" >
+        <header>
+            <h1>HELP</h1>
+        </header>
+        <section id="section1">
+            <h2>Section 1: Getting Started</h2>
+    
+            <p><b>Registering an Account:</b></p>
+            <p>If you haven't already, start by registering an account on IdeaTech.</p>
+            <p>Teachers can sign up using their official IDs provided by the college.</p>
+            <p>Follow the prompts on the registration page to create your account.</p>
+    
+            <p><b>Logging In:</b></p>
+            <p>Once your account is registered, log in using your credentials.</p>
+            <p>Enter your username and password on the login page to access your account.</p>
+    
+            <p><b>Exploring Manuals:</b></p>
+            <p>Navigate to the "Manuals" page to explore the available manuals for machines in the Idea Lab.</p>
+            <p>Click on a manual to view its contents or download it for offline use.</p>
+    
+            <p><b>Requesting Machine Access:</b></p>
+            <p>If you need access to a specific machine in the Idea Lab, submit a request through the platform.</p>
+            <p>Include details such as the desired machine, date and time of usage, and purpose of usage in your request.
+            </p>
+    
+            <p><b>Organizing Workshops (For Teachers):</b></p>
+            <p>Teachers can organize workshops for students by sending emails through the platform.</p>
+            <p>Coordinate with the admin to schedule workshops and ensure machine availability.</p>
+    
+            <p><b>Troubleshooting and Support:</b></p>
+            <p>If you encounter any issues or have questions about using the platform, don't hesitate to reach out for
+                support.</p>
+            <p>Contact our support team at [support <a href="">kishorpatil.connect@gmail.com</a>/<a href="">9322303426</a> ]
+                for assistance.</p>
+    
+            <p><b>Providing Feedback:</b></p>
+            <p>We value your feedback! If you have suggestions for improving the platform or encounter any technical issues,
+                let us know.</p>
+            <p>Use the feedback feature on the platform or contact our support team to share your thoughts.</p>
+    
+            <p><b>Stay Updated:</b></p>
+            <p>Check back regularly for updates and announcements on new manuals, workshops, and features.</p>
+            <p>Follow our social media channels or subscribe to our newsletter for the latest news and information.</p>
+    
+        </section>
+        <section id="section2">
+            <h2>Section 2: FAQs</h2>
+            <h3> <u>General Questions</u> </h3>
+    
+            <p><strong><em>1.What is IdeaTech?</em></strong></p>
+            <p>IdeaTech is a platform designed to facilitate access to manuals for machines available in the Idea Lab, such
+                as the CO2 laser cutting machine, 3D printer, and PCB machine.</p>
+    
+            <p><strong><em>2.How can I access the manuals?</em></strong></p>
+            <p>You can access the manuals by visiting the <em>"Manuals"</em> page on our website.</p>
+    
+            <p><strong><em>3.Is the information on the website updated regularly?</em></strong></p>
+            <p>Yes, the information on the website is dynamic and updated whenever a new manual is uploaded.</p>
+    
+            <p><strong><em>4.Can I download the manuals for offline use?</em></strong></p>
+            <p>Yes, users can download the manuals for offline use.</p>
+    
+            <p><strong><em>5.Are there any fees associated with accessing the manuals?</em></strong></p>
+            <p>No, accessing the manuals is free for registered users.</p>
+    
+            <h3> <u> User Accounts</u></h3>
+    
+            <p><strong><em>6.What types of user accounts are available?</em></strong></p>
+            <p>There are three types of user accounts: admin, teacher, and student.</p>
+    
+            <p><strong><em>7.How do I sign up for an account?</em></strong></p>
+            <p>Students and teachers can sign up using their official IDs provided by the college.</p>
+    
+            <p><strong><em>8.Can I reset my password if I forget it?</em></strong></p>
+            <p>Yes, there is a password reset option available on the login page.</p>
+    
+            <p><strong><em>9.Is there a limit to the number of manuals I can access with my account?</em></strong></p>
+            <p>No, there is no limit to the number of manuals you can access with your account.</p>
+    
+            <p><strong><em>10.Can I change my account type from student to teacher, or vice versa?</em></strong></p>
+            <p>No, account types cannot be changed. You'll need to create a new account with the desired type.</p>
+    
+            <h3> <u>Admin Features</u> </h3>
+    
+            <p><strong><em>11.What can the admin do?</em></strong></p>
+            <p>The admin can manage user requests, confirm machine availability, and schedule workshops.</p>
+    
+            <p><strong><em>12.How does the admin confirm machine availability?</em></strong></p>
+            <p>The admin reviews requests from students and replies with confirmation and timing of availability.</p>
+    
+            <p><strong><em>13.Can the admin upload manuals on behalf of users?</em></strong></p>
+            <p>Yes, the admin has the ability to upload manuals on behalf of users.</p>
+    
+            <p><strong><em>14.There a specific process for admin approval of workshop requests?</em></strong></p>
+            <p>Yes, workshop requests are reviewed by the admin, and approval is based on factors like machine availability
+                and scheduling conflicts.</p>
+    
+            <p><strong><em>15.How quickly can the admin respond to user requests?</em></strong></p>
+            <p>The admin aims to respond to user requests within [specify timeframe].</p>
+    
+            <h3> <u>Teacher Features</u> </h3>
+    
+            <p><strong><em>16.How can teachers utilize the platform?</em></strong></p>
+            <p>Teachers can send emails to the student community to organize workshops for the machines available in the
+                Idea Lab.
+            </p>
+    
+            <p><strong><em>17.Are there any guidelines for organizing workshops?</em></strong></p>
+            <p>Yes, guidelines for organizing workshops are available on the platform.</p>
+    
+            <p><strong><em>18.Can teachers track student attendance at workshops?</em></strong></p>
+            <p>Yes, teachers have access to attendance tracking features for workshops they organize.</p>
+    
+            <p><strong><em>19.Is there a limit to the number of workshops a teacher can schedule?</em></strong></p>
+            <p>No, there is no limit to the number of workshops a teacher can schedule.</p>
+    
+            <p><strong><em>20.Can teachers collaborate on workshop planning through the platform?</em></strong></p>
+            <p>Yes, teachers can collaborate on workshop planning by sharing workshop details and coordinating schedules
+                through the platform.</p>
+    
+            <h3> <u>Student Requests</u> </h3>
+    
+            <p><strong><em>How can students request access to specific machines?</em></strong></p>
+            <p>Students can request access to specific machines by submitting a request through the platform.</p>
+    
+            <p><strong><em>What information should students include in their machine access requests?</em></strong></p>
+            <p>Students should include details such as the desired machine, date and time of usage, and purpose of usage in
+                their access requests.</p>
+    
+            <p><strong><em>How long does it take for students to receive confirmation of machine availability?</em></strong>
+            </p>
+            <p>Students typically receive confirmation of machine availability within [specify timeframe].</p>
+    
+            <p><strong><em>Can students request tutorials or additional assistance for using the machines?</em></strong></p>
+            <p>Yes, students can request tutorials or additional assistance through the platform.</p>
+    
+            <p><strong><em>Is there a limit to the number of machine access requests a student can submit?</em></strong></p>
+            <p>No, there is no limit to the number of machine access requests a student can submit.</p>
+    
+            <h3> <u>Troubleshooting</u> </h3>
+    
+            <p><strong><em>I'm experiencing issues with the website. What should I do?</em></strong></p>
+            <p>If you encounter any issues, please contact our support team at [support email/phone number].</p>
+    
+            <p><strong><em>I can't find the manual I need. What should I do?</em></strong></p>
+            <p>If the manual you need is not available, you can submit a request to the admin for assistance.</p>
+    
+            <p><strong><em>The manual I accessed seems outdated. How can I get the latest version?</em></strong></p>
+            <p>You can request the latest version of the manual from the admin or check if an updated version has been
+                uploaded to the platform.</p>
+    
+            <p><strong><em>Are there any known compatibility issues with certain browsers or devices?</em></strong></p>
+            <p>We strive to ensure compatibility with all major browsers and devices. If you encounter any issues, please
+                let us know.</p>
+    
+            <p><strong><em>How can I report technical problems or suggest improvements for the platform?</em></strong></p>
+            <p>You can report technical problems or suggest improvements by contacting our support team or using the
+                feedback feature on the platform.</p>
+    
+        </section>
+        <section id="section3">
+            <h2>Section 3:Contact Us</h2>
+            <p>If you need further assistance, feel free to contact us.</p>
+        </section>
+    </div>
+    <div class="curved-box">
+      <img src="../public/TECH (2).png" alt="Logo">
+      <nav>
+        <ul>
+          <li><a href="/AdminHomepage"><img src="../public/home (5).png" alt="Home"> <span>Home</span></a></li>
+          <li><a href="/UserAboutUs"><img src="../public/info-button.png" alt="About"> <span>About</span></a></li>
+          <li><a href="#" id="openBtn"><img src="../public/home (5).png" alt="Help"> <span>Help</span></a></li>
+          <li><a href="/AdminProfile"><img src="../public/profile-user.png" alt="Profile"> <span>Profile</span></a></li>
+        </ul>
+      </nav>
+      <div class="bottom-box">
+        <img src="../public/Mind map-pana.png" alt="Bottom Image">
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

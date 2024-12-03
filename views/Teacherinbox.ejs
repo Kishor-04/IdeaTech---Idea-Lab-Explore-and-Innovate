@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Message to Students</title>
+    <link rel="icon" class="icon" href="../public/TECH (2).png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../public/Inbox.css">
+</head>
+<body>
+    <div class="Contact-Container">
+        <button class="Close-Button" id="closeButton">&#10006;</button>
+        <form action="/message" method="post" class="Contact-Left">
+            <div class="Contact-Left-Title">
+                <h2>Send Message to Students</h2>
+                <hr>
+            </div>
+            <label for="teacherName">Teacher's Name:</label>
+            <input type="text" id="teacherName" name="teacherName" class="Contact-Inputs" required>
+            <label for="from">From (Teacheremailid):</label>
+            <input type="email" id="from" name="from" class="Contact-Inputs" required>
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" class="Contact-Inputs" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" cols="30" class="Contact-Inputs" required></textarea>
+            <button type="submit">Send Email to Students</button>
+        </form>
+    </div>
+    <script src="request_box_close.js"></script>
+</body>
+</html>

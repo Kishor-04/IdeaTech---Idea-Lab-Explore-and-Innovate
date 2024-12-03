@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Inbox</title>
+  <link rel="icon" class="icon" href="../public/TECH (2).png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet">
+  <link rel="stylesheet" href="./public/style.css">
+</head>
+<body>
+  <h1>All Chats</h1>
+  <form method="GET" action="/message/new">
+    <!-- <button>New Chat</button> -->
+  </form>
+  <div class="chats-container">
+    <% for (let chat of chats) { %>
+      <div class="chat">
+        <p>From: <%= chat.name %> (<%= chat.email %>)</p>
+        <p><%= chat.message %></p>
+        <button onclick="toggleReplyForm('<%= chat._id %>')">Reply</button>
+        <hr/>
+        <div id="replyForm<%= chat._id %>" style="display: none;">
+          <form method="POST" action="/reply-message">
+            <input type="hidden" name="messageId" value="<%= chat._id %>">
+            <input type="hidden" name="email" value="<%= chat.email %>">
+            <textarea name="reply" rows="3" placeholder="Type your reply..."></textarea><br>
+            <button type="submit">Send Reply</button>
+          </form>
+        </div>
+      </div>
+    <% } %>
+  </div>
+  <script>
+    function toggleReplyForm(messageId) {
+      var replyForm = document.getElementById('replyForm' + messageId);
+      if (replyForm.style.display === 'none') {
+        replyForm.style.display = 'block';
+      } else {
+        replyForm.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>

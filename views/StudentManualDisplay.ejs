@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdminManualDisplay</title>
+  <link rel="icon" class="icon" href="../public/TECH (2).png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet">
+  <link rel="stylesheet" href="../public/AdminDisplay.css">
+  <style>
+    .highlight {
+    background-color: yellow !important;
+    /* Add any other styles for highlighting */
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <button class="button" onclick="openInboxPage()"><img src="../public/mail-inbox-app.png" alt="Icon"> Inbox</button>
+      <!-- <div class="search-box">
+        <img src="../public/search-interface-symbol.png" alt="Search Icon">
+        <input type="text" id="searchInput" placeholder="Search...">
+      </div> -->
+      <div id="searchContainer" class="search-box">
+        <img src="../public/search-interface-symbol.png" alt="Search Icon">
+        <input type="text" id="searchInput" placeholder="Search...">
+    </div>
+      <button class="sign-out-button"><img src="../public/profile-user.png" alt="Sign Out Icon"> <span>Sign
+          Out</span></button>
+    </div>
+    <div id="navbar" class="navbar">
+      <h2>Contents</h2>
+      <button id="closeBtn">&times;</button>
+      
+      <ul>
+        
+        <div id="tableOfContents"></div>
+        <div class="bottom-box" id="bottom-box">
+          <div class="square"></div>
+          <img src="../public/Mind map-pana.png" alt="Bottom Image">
+        </div>
+      </ul>
+      
+    </div>
+    
+    <div class="middle-box" id="dynamicContent" id="textContainer" id="border">
+      <h1 class="read">Read Here</h1>
+      <h1 class="H1"><%= machine.machineName %></h1>
+      <div class="dynamic">
+        <% if (machine) { %>
+          
+          <!-- <img src="<%= machine.imageUrl %>" alt="<%= machine.machineName %>"> -->
+          <p><%- machine.description %></p>
+          <% } else { %>
+          <p><%= error %></p>
+          <% } %>       
+      </div>
+        
+    </div>
+    <div class="curved-box">
+      <img src="../public/TECH (2).png" alt="Logo">
+      <nav>
+        <ul>
+          <li><a href="/AdminHomepage"><img src="../public/home (5).png" alt="Home"> <span>Home</span></a></li>
+          <li><a href="#" id="openBtn"><img src="../public/contents.png" alt="Contents"> <span>Contents</span></a></li>
+          <li><a href="/UserAboutUs"><img src="../public/info-button.png" alt="About"> <span>About</span></a></li>
+          <li><a href="/UserHelp"><img src="../public/help_11433340.png" alt="Help"> <span>Help</span></a></li>
+          <li><a href="/AdminProfile"><img src="../public/profile-user.png" alt="Profile"> <span>Profile</span></a></li>
+        </ul>
+      </nav>
+      <div class="bottom-box">
+        <img src="../public/Mind map-pana.png" alt="Bottom Image">
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    // Function to generate table of contents
+    document.addEventListener('DOMContentLoaded', function() {
+        // Parse the dynamic content to generate the table of contents
+        const dynamicContent = `<%- machine.description %>`;
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(dynamicContent, 'text/html');
+        const headings = doc.querySelectorAll('h2');
+        let tocHTML = '<ul>';
+        headings.forEach((heading) => {
+            const id = heading.getAttribute('id');
+            const text = heading.innerText;
+            tocHTML += `<li><a href="#${id}" onclick="highlightHeading('${id}')">${text}</a></li>`;
+            // Add id attribute to the heading in dynamic content
+            heading.setAttribute('id', id);
+        });
+        tocHTML += '</ul>';
+        document.getElementById('tableOfContents').innerHTML = tocHTML;
+
+        // Show dynamic content once table of contents is generated
+        document.getElementById('dynamicContent').style.display = 'block';
+    });
+    </script>
+
+<script>
+  document.getElementById("openBtn").addEventListener("click", function() {
+document.getElementById("navbar").style.left = "0";
+});
+
+document.getElementById("closeBtn").addEventListener("click", function() {
+document.getElementById("navbar").style.left = "-190px";
+});
+
+</script>
+
+<script>
+  // Select the container element
+var container = document.getElementById("tableOfContents");
+
+// Add event listener for scroll event
+container.addEventListener("scroll", function() {
+  // Open the navbar
+  document.getElementById("tableOfContents").style.left = "0";
+});
+</script>
+
+<script>
+  // Function to update content dynamically based on search input
+  document.getElementById("searchInput").addEventListener("input", function() {
+      var searchText = this.value.trim().toLowerCase();
+      var machineDescription = document.getElementById("machineDescription");
+      var descriptionText = machineDescription.textContent.toLowerCase();
+      
+      // Reset highlighting
+      machineDescription.innerHTML = machineDescription.innerText;
+
+      // Highlight matching text
+      if (searchText !== "") {
+          var index = descriptionText.indexOf(searchText);
+          while (index !== -1) {
+              var start = index;
+              var end = index + searchText.length;
+              machineDescription.innerHTML = machineDescription.innerHTML.substring(0, start) + 
+                                              '<span class="highlight">' + 
+                                              machineDescription.innerHTML.substring(start, end) + 
+                                              '</span>' + 
+                                              machineDescription.innerHTML.substring(end);
+              index = descriptionText.indexOf(searchText, end);
+          }
+      }
+  });
+</script>
+
+</body>
+
+</html>

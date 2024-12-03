@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="public/Booking.css" />
+    <title>Student Booking</title>
+</head>
+
+<body>
+
+    <div class="container container2">
+        <h1>Book a Machine</h1>
+
+        <form action="/studentBooking" method="POST" class="booking-form">
+            <input type="email" name="email" placeholder="Your Email" required aria-required="true" />
+
+            <label for="machine">Select Machine:</label>
+            <select name="machineId" required aria-required="true">
+                <option value="">Select a Machine</option>
+                <% machines.forEach(machine => { %>
+                    <option value="<%= machine._id %>">
+                        <%= machine.machineName %>
+                    </option>
+                <% }) %>
+            </select>
+
+            <label for="setTime">Booking Start Time:</label>
+            <!-- DateTime input field -->
+            <input type="datetime-local" name="setTime" id="setTime" required aria-required="true" />
+
+            <label for="duration">Duration (in minutes):</label>
+            <input type="number" name="duration" required aria-required="true" min="20" max="60" />
+
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const setTimeInput = document.getElementById('setTime');
+
+            // Get today's date and format it for the datetime-local input
+            const today = new Date();
+            const todayString = today.toISOString().slice(0, 16);
+            const maxDate = new Date(today.setDate(today.getDate() + 7)).toISOString().slice(0, 16);
+
+            // Set min and max dates
+            setTimeInput.min = todayString;
+            setTimeInput.max = maxDate;
+
+            // Disable Sundays in the datetime picker
+            setTimeInput.addEventListener('input', function () {
+                const selectedDate = new Date(this.value);
+
+                // Check if the selected day is Sunday (0 = Sunday)
+                if (selectedDate.getDay() === 0) {
+                    alert("Sundays are not available for booking. Please choose another date.");
+                    this.value = ''; // Clear the input value
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
